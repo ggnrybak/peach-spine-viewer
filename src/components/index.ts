@@ -1,4 +1,5 @@
 export { default as App } from './App';
+export { default as AssetsPanel } from './AssetsPanel';
 export { default as LayerItem } from './LayerItem';
 export { default as LayersPanel } from './LayersPanel';
 export { default as Main } from './Main';
