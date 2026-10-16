@@ -1,6 +1,6 @@
 import { getHalf } from '@peach/utils';
 import { Spine } from '@pixi-spine/runtime-4.1';
-import { Application, BitmapText, Sprite, Text } from 'pixi.js';
+import { Application, BitmapText, Point, Sprite, Text } from 'pixi.js';
 
 import {
   AddAnimationPayload,
@@ -19,7 +19,7 @@ export function makeAddAnimationState(
 ): ElementsReducerState {
   const spine = new Spine(skeleton);
   spine.name = anim;
-  spine.position.set(getHalf(screen.width), getHalf(screen.height));
+  spine.position.copyFrom(stage.toLocal(new Point(getHalf(screen.width), getHalf(screen.height))));
   stage.addChild(spine);
   return {
     ...state,
@@ -35,7 +35,7 @@ export function makeAddBitmapTextState(
 ): ElementsReducerState {
   const bitmapText = new BitmapText(content, { fontName: font });
   bitmapText.anchor.set(0.5, 0.5);
-  bitmapText.position.set(getHalf(screen.width), getHalf(screen.height));
+  bitmapText.position.copyFrom(stage.toLocal(new Point(getHalf(screen.width), getHalf(screen.height))));
   stage.addChild(bitmapText);
   return {
     ...state,
@@ -52,7 +52,7 @@ export function makeAddTextState(
   const text = new Text(content, { fontFamily: font });
   text.name = font || 'text';
   text.anchor.set(0.5, 0.5);
-  text.position.set(getHalf(screen.width), getHalf(screen.height));
+  text.position.copyFrom(stage.toLocal(new Point(getHalf(screen.width), getHalf(screen.height))));
   stage.addChild(text);
   return {
     ...state,
@@ -69,7 +69,7 @@ export function makeAddSpriteState(
   const sprite = new Sprite(texture);
   sprite.name = name;
   sprite.anchor.set(0.5, 0.5);
-  sprite.position.set(getHalf(screen.width), getHalf(screen.height));
+  sprite.position.copyFrom(stage.toLocal(new Point(getHalf(screen.width), getHalf(screen.height))));
   stage.addChild(sprite);
   return {
     ...state,

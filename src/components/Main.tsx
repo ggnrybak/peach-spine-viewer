@@ -15,7 +15,7 @@ export default function Main() {
         <Flex flexBasis="20vw" minW="200px" minH={0} flexDirection="column" boxShadow={FRAME}>
           <AssetsPanel />
         </Flex>
-        <Flex flexGrow="1" bg={mainColorHover} boxShadow={FRAME}>
+        <Flex flexGrow="1" minW={0} minH={0} bg={mainColorHover} boxShadow={FRAME}>
           <Scene />
         </Flex>
         <Flex flexBasis="20vw" minW="200px" minH={0} flexDirection="column" boxShadow={FRAME}>
