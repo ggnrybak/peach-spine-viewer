@@ -13,18 +13,18 @@ export default function Main() {
       </Flex>
       <Flex flex={1} minH={0} overflow="hidden">
         <Flex flexBasis="20vw" minW="200px" minH={0} flexDirection="column" boxShadow={FRAME}>
-          <Flex flex={1} minH={0} overflow="hidden" borderBottomWidth="1px">
-            <LayersPanel />
-          </Flex>
-          <Flex flex={3} minH={0} overflow="hidden">
-            <AssetsPanel />
-          </Flex>
+          <AssetsPanel />
         </Flex>
         <Flex flexGrow="1" bg={mainColorHover} boxShadow={FRAME}>
           <Scene />
         </Flex>
-        <Flex flexBasis="20vw" minW="200px" boxShadow={FRAME}>
-          <PropertiesPanel />
+        <Flex flexBasis="20vw" minW="200px" minH={0} flexDirection="column" boxShadow={FRAME}>
+          <Flex flex="0 0 33.3%" minH={0} overflow="hidden" borderBottomWidth="1px">
+            <LayersPanel />
+          </Flex>
+          <Flex flex={1} minH={0} overflow="hidden">
+            <PropertiesPanel />
+          </Flex>
         </Flex>
       </Flex>
     </Flex>

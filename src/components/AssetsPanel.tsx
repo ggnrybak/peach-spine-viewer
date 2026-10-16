@@ -18,7 +18,7 @@ import { PropsWithChildren, useEffect, useState } from 'react';
 
 function AssetCategory({ name, children, bold = false }: PropsWithChildren<{ name: string; bold?: boolean }>) {
   return (
-    <AccordionItem borderWidth="1px" borderRadius="4px" mb={2} overflow="hidden">
+    <AccordionItem borderYWidth="1px" borderXWidth={0} borderRadius={0} mb={2} overflow="hidden">
       <AccordionButton px={3} py={2}>
         <Box flex="1" textAlign="left" fontWeight={bold ? 'bold' : 'normal'} overflowWrap="anywhere">
           {name}

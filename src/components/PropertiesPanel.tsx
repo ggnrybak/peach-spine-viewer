@@ -6,7 +6,7 @@ import { BitmapText, Sprite, Text } from 'pixi.js';
 
 import HideAndShowSpriteSettings from './settings/HideAndShowSpriteSettings';
 
-function getSettingsСomponent(element: CurrentElementPayload) {
+function getSettingsComponent(element: CurrentElementPayload) {
   if (element === null) return <></>;
   if (element instanceof BitmapText) return <BitmapTextSettings bitmapText={element} />;
   if (element instanceof Text) return <TextSettings text={element} />;
@@ -21,8 +21,8 @@ export default function PropertiesPanel() {
 
   return (
     <Container overflowY="scroll">
-      <PanelsTitel>props panel</PanelsTitel>
-      {getSettingsСomponent(currentElement)}
+      <PanelsTitel>props</PanelsTitel>
+      {getSettingsComponent(currentElement)}
     </Container>
   );
 }

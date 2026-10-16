@@ -14,7 +14,7 @@ export default function LayersPanel() {
   const { currentElement, setCurrentElement } = elementsContext;
   return (
     <Container overflowY="scroll">
-      <PanelsTitel>layers panel</PanelsTitel>
+      <PanelsTitel>layers</PanelsTitel>
       {Object.entries(elementsContext.spineAnimations).map(([anim, spine]) => (
         <LayerItem
           key={anim}

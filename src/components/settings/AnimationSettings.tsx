@@ -1,4 +1,4 @@
-import { Flex } from '@chakra-ui/react';
+import { Flex, SimpleGrid } from '@chakra-ui/react';
 import { BaseSettings, ButtonProp } from '@peach/components';
 import { useAppContext, useElementsContext } from '@peach/contexts';
 import { Spine } from '@pixi-spine/runtime-4.1';
@@ -38,12 +38,12 @@ export default function AnimationSettings({ spine }: AnimationSettingsProps) {
 
   return (
     <Flex flexDirection="column" gap="5px">
-      <Flex gap="5px">
-        <ButtonProp content="play animation" clickHandler={playClichHandler} />
-        <ButtonProp content="loop animation" clickHandler={loopClichHandler} />
-      </Flex>
-      <ButtonProp content="stop animation" clickHandler={stopClickHandler} />
-      <ButtonProp content="remove animation" clickHandler={removeClickHandler} />
+      <SimpleGrid columns={2} spacing="5px" minW={0}>
+        <ButtonProp content="Play animation" clickHandler={playClichHandler} />
+        <ButtonProp content="Loop animation" clickHandler={loopClichHandler} />
+        <ButtonProp content="Stop animation" clickHandler={stopClickHandler} />
+        <ButtonProp content="Remove" clickHandler={removeClickHandler} />
+      </SimpleGrid>
       <BaseSettings element={spine} />
     </Flex>
   );
