@@ -9,6 +9,7 @@ export const enum ElementsReducerTypes {
   AddSprite = 'addSprite',
   AddHideAndShowTextureScript = 'addHideAndShowTextureScript',
   SetCurrentElement = 'setCurrentElement',
+  ClearElements = 'clearElements',
 }
 
 export type HideAndShowTextureScript = {
@@ -58,13 +59,18 @@ export interface CurrentElementAction {
   payload: CurrentElementPayload;
 }
 
+export interface ClearElementsAction {
+  type: ElementsReducerTypes.ClearElements;
+}
+
 export type ElementsReducerAction =
   | AddAnimationAction
   | AddBitmapTextAction
   | AddTextAction
   | AddSpriteAction
   | AddHideAndShowTextureScriptAction
-  | CurrentElementAction;
+  | CurrentElementAction
+  | ClearElementsAction;
 
 export interface ElementsReducerState {
   readonly spineAnimations: Record<string, Spine>;
@@ -82,6 +88,7 @@ export interface ElementsContextState extends ElementsReducerState {
   addSprite(payload: AddSpritePayload): void;
   addHideAndShowTextureScript(payload: AddHideAndShowTextureScriptPayload): void;
   setCurrentElement(payload: CurrentElementPayload): void;
+  clearElements(): void;
 }
 
 export type AppProviderProps = PropsWithChildren;

@@ -42,6 +42,13 @@ export const ElementsProvider = ({ children }: AppProviderProps) => {
     setCurrentElement(payload: CurrentElementPayload) {
       dispatch({ type: ElementsReducerTypes.SetCurrentElement, payload });
     },
+    clearElements() {
+      // Destroy scene instances without destroying shared textures kept in Assets.
+      for (const element of app.stage.removeChildren()) {
+        element.destroy({ children: true });
+      }
+      dispatch({ type: ElementsReducerTypes.ClearElements });
+    },
   };
 
   return <ElementsContext.Provider value={elementsContext}>{children}</ElementsContext.Provider>;

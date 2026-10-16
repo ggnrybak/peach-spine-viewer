@@ -1,5 +1,5 @@
 import { Button, Flex } from '@chakra-ui/react';
-import { useAppContext } from '@peach/contexts';
+import { useAppContext, useElementsContext } from '@peach/contexts';
 import { useEffect, useRef, useState } from 'react';
 
 const MIN_ZOOM = 0.1;
@@ -8,6 +8,8 @@ const MAX_ZOOM = 5;
 export default function Scene() {
   const ref = useRef<HTMLDivElement>(null);
   const { app } = useAppContext();
+  // eslint-disable-next-line @typescript-eslint/unbound-method
+  const { clearElements } = useElementsContext();
   const [zoom, setZoom] = useState(1);
 
   function resetZoom() {
@@ -67,6 +69,9 @@ export default function Scene() {
   return (
     <Flex position="relative" flexBasis="100%" minW={0} minH={0} overflow="hidden">
       <Flex ref={ref} flex={1} minW={0} minH={0} overflow="hidden" />
+      <Button position="absolute" left={3} bottom={3} size="sm" onClick={clearElements}>
+        Clear
+      </Button>
       <Button
         position="absolute"
         right={3}

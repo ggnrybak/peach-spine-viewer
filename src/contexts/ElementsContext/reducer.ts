@@ -21,6 +21,9 @@ export function createElementsReducerState(): ElementsReducerState {
 
 export function elementsReducer(state: ElementsReducerState, action: ElementsReducerAction): ElementsReducerState {
   switch (action.type) {
+    case ElementsReducerTypes.ClearElements: {
+      return createElementsReducerState();
+    }
     case ElementsReducerTypes.AddAnimation: {
       return makeAddAnimationState(state, action.payload, action.app);
     }
